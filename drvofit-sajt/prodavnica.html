@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prodavnica — DrvoFit</title>
+<meta name="description" content="Poruči drvenu fitnes opremu — fitnes sprave i fitnes rekvizite iz DrvoFit radionice.">
+<link rel="stylesheet" href="style.css">
+<style>
+  .product-card{border:1px solid var(--line); background:var(--panel); display:flex; flex-direction:column;}
+  .product-thumb{aspect-ratio:4/3; display:flex; align-items:center; justify-content:center; border-bottom:1px solid var(--line); background:var(--bg-alt);}
+  .product-body{padding:22px; display:flex; flex-direction:column; gap:8px; flex:1;}
+  .spec-row{display:flex; justify-content:space-between; font-family:var(--mono); font-size:0.78rem; color:var(--cream-dim); border-top:1px solid var(--line); padding-top:10px; margin-top:auto;}
+  .category-tag{display:inline-block; font-family:var(--mono); font-size:0.7rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--wood-light); margin-bottom:2px;}
+
+  .shop-filter{
+    display:flex;
+    align-items:center;
+    gap:16px;
+    flex-wrap:wrap;
+    margin-bottom:44px;
+    padding:20px 24px;
+    background:var(--panel);
+    border:1px solid var(--line);
+  }
+  .shop-filter label{
+    font-family:var(--mono);
+    font-size:0.78rem;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    color:var(--wood-light);
+  }
+  .shop-filter select{
+    background:var(--bg-alt);
+    border:1px solid var(--line-strong);
+    color:var(--cream);
+    padding:11px 14px;
+    font-family:var(--body);
+    font-size:1rem;
+    border-radius:2px;
+    min-width:220px;
+  }
+  .shop-filter select:focus{outline:2px solid var(--ember); outline-offset:1px;}
+  .shop-count{
+    font-family:var(--mono);
+    font-size:0.8rem;
+    color:var(--cream-dim);
+    margin-left:auto;
+  }
+  .product-card[hidden]{display:none;}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="logo">
+      <svg class="ring-mark" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="20" cy="20" r="17" fill="none" stroke="#6b4226" stroke-width="2"/>
+        <circle cx="20" cy="20" r="12" fill="none" stroke="#b8834f" stroke-width="2"/>
+        <circle cx="20" cy="20" r="7" fill="none" stroke="#c1401c" stroke-width="2.5"/>
+      </svg>
+      Drvo<span class="accent">Fit</span>
+    </a>
+    <button class="nav-toggle" aria-label="Meni">☰</button>
+    <nav class="main-nav">
+      <a href="index.html">Naslovna</a>
+      <a href="o-nama.html">O nama</a>
+      <a href="galerija.html">Galerija proizvoda</a>
+      <a href="prodavnica.html" class="active">Prodavnica</a>
+      <a href="kontakt.html">Kontakt</a>
+      <a href="tel:+381611795734" class="navbar-phone">+381611795734</a>
+    </nav>
+  </div>
+</header>
+
+<section class="page-hero" style="padding-bottom:40px;">
+  <div class="container">
+    <p class="eyebrow">Prodavnica</p>
+    <h1>PORUČI OPREMU.</h1>
+    <p>Izaberi kategoriju i pogledaj ponudu — fitnes sprave za osnovu treninga i fitnes rekvizite koji ga upotpunjuju.</p>
+  </div>
+</section>
+
+<section style="padding-top:56px;">
+  <div class="container">
+
+    <div class="shop-filter reveal">
+      <label for="category-filter">Kategorija</label>
+      <select id="category-filter">
+        <option value="sve">Sve kategorije</option>
+        <option value="sprave">Fitnes sprave</option>
+        <option value="rekviziti">Fitnes rekviziti</option>
+      </select>
+      <span class="shop-count" id="shop-count"></span>
+    </div>
+
+    <div id="product-grid" style="display:grid; grid-template-columns:repeat(3,1fr); gap:28px;">
+
+      <!-- FITNES SPRAVE -->
+      <div class="product-card reveal" data-category="sprave">
+        <div class="product-thumb">
+          <svg width="130" height="130" viewBox="0 0 130 130"><circle cx="65" cy="65" r="48" fill="none" stroke="#b8834f" stroke-width="8"/></svg>
+        </div>
+        <div class="product-body">
+          <span class="category-tag">Fitnes sprave</span>
+          <h3 style="font-family:var(--body); font-weight:600; font-size:1.15rem;">Gimnastički prstenovi</h3>
+          <p style="color:var(--cream-dim); font-size:0.92rem;">Klasičan par prstenova od breze, sa remenjem podesivim po dužini. Prijatan hvat, otporan na znoj.</p>
+          <div class="spec-row"><span>Ø 28mm · breza</span><span>do 150kg</span></div>
+        </div>
+      </div>
+
+      <div class="product-card reveal" data-category="sprave">
+        <div class="product-thumb">
+          <svg width="140" height="110" viewBox="0 0 140 110"><rect x="15" y="20" width="14" height="70" fill="#b8834f"/><rect x="111" y="20" width="14" height="70" fill="#b8834f"/><rect x="15" y="45" width="110" height="12" fill="#6b4226"/></svg>
+        </div>
+        <div class="product-body">
+          <span class="category-tag">Fitnes sprave</span>
+          <h3 style="font-family:var(--body); font-weight:600; font-size:1.15rem;">Paralele (parallettes)</h3>
+          <p style="color:var(--cream-dim); font-size:0.92rem;">Par niskih paralela od hrasta, za sklekove, L-sedove i osnove kalistenike.</p>
+          <div class="spec-row"><span>hrast · par</span><span>vis. 15/30cm</span></div>
+        </div>
+      </div>
+
+      <div class="product-card reveal" data-category="sprave">
+        <div class="product-thumb">
+          <svg width="130" height="130" viewBox="0 0 130 130"><rect x="10" y="60" width="110" height="10" rx="4" fill="#b8834f"/><circle cx="22" cy="65" r="16" fill="none" stroke="#c1401c" stroke-width="4"/><circle cx="108" cy="65" r="16" fill="none" stroke="#c1401c" stroke-width="4"/></svg>
+        </div>
+        <div class="product-body">
+          <span class="category-tag">Fitnes sprave</span>
+          <h3 style="font-family:var(--body); font-weight:600; font-size:1.15rem;">Vratilo za zgibove</h3>
+          <p style="color:var(--cream-dim); font-size:0.92rem;">Vratilo od jasena za montažu na dovratak ili zid, sa učvršćenjem po meri prostora.</p>
+          <div class="spec-row"><span>jasen · Ø 32mm</span><span>do 150kg</span></div>
+        </div>
+      </div>
+
+      <div class="product-card reveal" data-category="sprave">
+        <div class="product-thumb">
+          <svg width="140" height="120" viewBox="0 0 140 120"><rect x="15" y="70" width="110" height="16" rx="3" fill="#b8834f"/><rect x="25" y="86" width="10" height="24" fill="#6b4226"/><rect x="105" y="86" width="10" height="24" fill="#6b4226"/></svg>
+        </div>
+        <div class="product-body">
+          <span class="category-tag">Fitnes sprave</span>
+          <h3 style="font-family:var(--body); font-weight:600; font-size:1.15rem;">Sklopiva klupa za trening</h3>
+          <p style="color:var(--cream-dim); font-size:0.92rem;">Masivna drvena klupa za sklekove, iskorake i vežbe sa sopstvenom težinom — lako se sklapa za skladištenje.</p>
+          <div class="spec-row"><span>bukva</span><span>nosivost 180kg</span></div>
+        </div>
+      </div>
+
+      <!-- FITNES REKVIZITI -->
+      <div class="product-card reveal" data-category="rekviziti">
+        <div class="product-thumb">
+          <svg width="130" height="130" viewBox="0 0 130 130"><circle cx="65" cy="45" r="20" fill="none" stroke="#b8834f" stroke-width="7"/><rect x="60" y="65" width="10" height="45" fill="#6b4226"/></svg>
+        </div>
+        <div class="product-body">
+          <span class="category-tag">Fitnes rekviziti</span>
+          <h3 style="font-family:var(--body); font-weight:600; font-size:1.15rem;">Drvena girja (indian club)</h3>
+          <p style="color:var(--cream-dim); font-size:0.92rem;">Klasična drvena girja za pokretljivost ramena i funkcionalnu snagu.</p>
+          <div class="spec-row"><span>bukva</span><span>1 / 1.5 / 2kg</span></div>
+        </div>
+      </div>
+
+      <div class="product-card reveal" data-category="rekviziti">
+        <div class="product-thumb">
+          <svg width="130" height="130" viewBox="0 0 130 130"><ellipse cx="65" cy="65" rx="50" ry="22" fill="none" stroke="#b8834f" stroke-width="7"/></svg>
+        </div>
+        <div class="product-body">
+          <span class="category-tag">Fitnes rekviziti</span>
+          <h3 style="font-family:var(--body); font-weight:600; font-size:1.15rem;">Balans daska</h3>
+          <p style="color:var(--cream-dim); font-size:0.92rem;">Daska za vežbe ravnoteže i propriocepcije, sa zaobljenim drvenim postoljem.</p>
+          <div class="spec-row"><span>bukva</span><span>nosivost 120kg</span></div>
+        </div>
+      </div>
+
+      <div class="product-card reveal" data-category="rekviziti">
+        <div class="product-thumb">
+          <svg width="130" height="130" viewBox="0 0 130 130"><circle cx="40" cy="35" r="10" fill="#b8834f"/><circle cx="90" cy="35" r="10" fill="#b8834f"/><path d="M40 45 Q65 100 90 45" fill="none" stroke="#6b4226" stroke-width="4"/></svg>
+        </div>
+        <div class="product-body">
+          <span class="category-tag">Fitnes rekviziti</span>
+          <h3 style="font-family:var(--body); font-weight:600; font-size:1.15rem;">Uže za preskakanje</h3>
+          <p style="color:var(--cream-dim); font-size:0.92rem;">Uže sa tornjenim drvenim drškama od jasena, podesive dužine.</p>
+          <div class="spec-row"><span>jasen · konoplja</span><span>univerzalna dužina</span></div>
+        </div>
+      </div>
+
+      <div class="product-card reveal" data-category="rekviziti">
+        <div class="product-thumb">
+          <svg width="130" height="130" viewBox="0 0 130 130"><rect x="20" y="55" width="90" height="20" rx="4" fill="#b8834f"/><circle cx="30" cy="65" r="10" fill="none" stroke="#c1401c" stroke-width="3"/><circle cx="100" cy="65" r="10" fill="none" stroke="#c1401c" stroke-width="3"/></svg>
+        </div>
+        <div class="product-body">
+          <span class="category-tag">Fitnes rekviziti</span>
+          <h3 style="font-family:var(--body); font-weight:600; font-size:1.15rem;">Ojačivač stiska</h3>
+          <p style="color:var(--cream-dim); font-size:0.92rem;">Drveni rukohvat za jačanje stiska i podlaktica, tri nivoa otpora.</p>
+          <div class="spec-row"><span>hrast</span><span>lako / srednje / teško</span></div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="reveal" style="margin-top:56px; text-align:center; padding:40px; border:1px solid var(--line); background:var(--panel);">
+      <p class="eyebrow">Ne vidiš ono što ti treba?</p>
+      <h3 style="font-family:var(--body); font-weight:600; font-size:1.4rem; margin-top:10px;">Pravimo i po porudžbini — pošalji nam ideju.</h3>
+      <div style="margin-top:22px;">
+        <a href="kontakt.html" class="btn btn-primary">Pošalji upit</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <h4>DrvoFit</h4>
+        <p>Ručno rađena drvena oprema za trening — gimnastički prstenovi, paralele i još mnogo toga. Radionica u Ljigu, Srbija.</p>
+      </div>
+      <div>
+        <h4>Stranice</h4>
+        <a href="index.html">Naslovna</a>
+        <a href="o-nama.html">O nama</a>
+        <a href="galerija.html">Galerija proizvoda</a>
+        <a href="prodavnica.html">Prodavnica</a>
+        <a href="kontakt.html">Kontakt</a>
+      </div>
+      <div>
+        <h4>Kontakt</h4>
+        <a href="mailto:info@drvofit.com">info@drvofit.com</a>
+        <a href="#">Instagram</a>
+        <a href="#">TikTok</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 DrvoFit. Sva prava zadržana.</span>
+      <span>Ljig, Srbija</span>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const filter = document.querySelector('#category-filter');
+  const cards = document.querySelectorAll('#product-grid .product-card');
+  const count = document.querySelector('#shop-count');
+
+  function applyFilter() {
+    const value = filter.value;
+    let visible = 0;
+    cards.forEach(card => {
+      const match = value === 'sve' || card.dataset.category === value;
+      card.hidden = !match;
+      if (match) visible++;
+    });
+    count.textContent = visible + (visible === 1 ? ' proizvod' : ' proizvoda');
+  }
+
+  filter.addEventListener('change', applyFilter);
+  applyFilter();
+});
+</script>
+</body>
+</html>

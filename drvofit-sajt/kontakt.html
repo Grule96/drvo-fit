@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kontakt — DrvoFit</title>
+<meta name="description" content="Kontaktiraj DrvoFit radionicu za upite, porudžbine po meri i saradnju.">
+<link rel="stylesheet" href="style.css">
+<style>
+  .form-field{display:flex; flex-direction:column; gap:8px; margin-bottom:22px;}
+  .form-field label{font-family:var(--mono); font-size:0.78rem; letter-spacing:0.06em; text-transform:uppercase; color:var(--wood-light);}
+  .form-field input, .form-field textarea{
+    background:var(--bg-alt);
+    border:1px solid var(--line-strong);
+    color:var(--cream);
+    padding:13px 14px;
+    font-family:var(--body);
+    font-size:1rem;
+    border-radius:2px;
+  }
+  .form-field input:focus, .form-field textarea:focus{
+    outline:2px solid var(--ember);
+    outline-offset:1px;
+  }
+  #form-status{
+    margin-top:16px;
+    padding:14px 16px;
+    border-left:2px solid var(--ember);
+    background:var(--panel);
+    color:var(--cream-dim);
+    font-size:0.92rem;
+    display:none;
+  }
+  #form-status.visible{display:block;}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="logo">
+      <svg class="ring-mark" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="20" cy="20" r="17" fill="none" stroke="#6b4226" stroke-width="2"/>
+        <circle cx="20" cy="20" r="12" fill="none" stroke="#b8834f" stroke-width="2"/>
+        <circle cx="20" cy="20" r="7" fill="none" stroke="#c1401c" stroke-width="2.5"/>
+      </svg>
+      Drvo<span class="accent">Fit</span>
+    </a>
+    <button class="nav-toggle" aria-label="Meni">☰</button>
+    <nav class="main-nav">
+      <a href="index.html">Naslovna</a>
+      <a href="o-nama.html">O nama</a>
+      <a href="galerija.html">Galerija proizvoda</a>
+      <a href="prodavnica.html">Prodavnica</a>
+      <a href="kontakt.html" class="active">Kontakt</a>
+      <a href="tel:+381611795734" class="navbar-phone">+381611795734</a>
+    </nav>
+  </div>
+</header>
+
+<section class="page-hero">
+  <div class="container">
+    <p class="eyebrow">Kontakt</p>
+    <h1>PIŠI NAM.</h1>
+    <p>Za porudžbine, upite po meri ili saradnju sa gimnastičkim klubovima i teretanama — javi se.</p>
+  </div>
+</section>
+
+<section>
+  <div class="container" style="display:grid; grid-template-columns:1fr 1fr; gap:64px;">
+
+    <div class="reveal">
+      <form id="contact-form" action="https://api.web3forms.com/submit" method="POST">
+        <!-- ZAMENI 'TVOJ-ACCESS-KEY-OVDE' ključem koji dobiješ sa web3forms.com (korak 2 u objašnjenju ispod) -->
+        <input type="hidden" name="access_key" value="56228eb5-b9ff-4425-ac01-bf7ab7a9e01b">
+        <input type="hidden" name="subject" value="Nova poruka sa DrvoFit sajta">
+        <input type="hidden" name="from_name" value="DrvoFit — kontakt forma">
+        <!-- honeypot polje protiv spam-botova — mora ostati prazno i sakriveno -->
+        <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
+
+        <div class="form-field">
+          <label for="name">Ime i prezime</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+        <div class="form-field">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-field">
+          <label for="subject-line">Tema</label>
+          <input type="text" id="subject-line" name="tema" placeholder="npr. Porudžbina prstenova">
+        </div>
+        <div class="form-field">
+          <label for="message">Poruka</label>
+          <textarea id="message" name="message" rows="6" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" id="submit-btn">Pošalji poruku</button>
+        <div id="form-status"></div>
+      </form>
+    </div>
+
+    <div class="reveal">
+      <div style="background:var(--panel); border:1px solid var(--line); padding:32px; margin-bottom:24px;">
+        <p class="eyebrow">Radionica</p>
+        <h3 style="font-family:var(--body); font-weight:600; font-size:1.3rem; margin-top:10px;">Ljig, Srbija</h3>
+        <p style="color:var(--cream-dim); margin-top:10px;">Poseta radionici je moguća po dogovoru — javi se unapred da te sačekamo.</p>
+        <div style="margin-top:18px; border:1px solid var(--line); overflow:hidden;">
+          <iframe
+            src="https://maps.google.com/maps?q=44.207954,20.223916&z=15&output=embed"
+            width="100%"
+            height="260"
+            style="border:0; display:block; filter:grayscale(0.3) contrast(1.1);"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Lokacija radionice — Ljig, Srbija">
+          </iframe>
+        </div>
+        <a href="https://www.google.com/maps?q=44.207954,20.223916" target="_blank" rel="noopener" style="display:inline-block; margin-top:12px; color:var(--ember-light); font-size:0.9rem;">Otvori u Google mapama →</a>
+      </div>
+      <div style="background:var(--panel); border:1px solid var(--line); padding:32px; margin-bottom:24px;">
+        <p class="eyebrow">Direktan kontakt</p>
+        <h3 style="font-family:var(--body); font-weight:600; font-size:1.1rem; margin-top:10px;">
+          <a href="tel:+381611795734" style="color:var(--ember-light);">+381611795734</a>
+        </h3>
+        <h3 style="font-family:var(--body); font-weight:600; font-size:1.1rem; margin-top:8px;">
+          <a href="mailto:info@drvofit.com" style="color:var(--ember-light);">info@drvofit.com</a>
+        </h3>
+        <p style="color:var(--cream-dim); margin-top:6px;">Odgovaramo obično u toku 24 sata.</p>
+      </div>
+      <div style="background:var(--panel); border:1px solid var(--line); padding:32px;">
+        <p class="eyebrow">Prati nas</p>
+        <div style="display:flex; gap:14px; margin-top:12px;">
+          <a href="#" class="btn btn-ghost" style="padding:10px 18px;">Instagram</a>
+          <a href="#" class="btn btn-ghost" style="padding:10px 18px;">TikTok</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <h4>DrvoFit</h4>
+        <p>Ručno rađena drvena oprema za trening — gimnastički prstenovi, paralele i još mnogo toga. Radionica u Ljigu, Srbija.</p>
+      </div>
+      <div>
+        <h4>Stranice</h4>
+        <a href="index.html">Naslovna</a>
+        <a href="o-nama.html">O nama</a>
+        <a href="galerija.html">Galerija proizvoda</a>
+        <a href="prodavnica.html">Prodavnica</a>
+        <a href="kontakt.html">Kontakt</a>
+      </div>
+      <div>
+        <h4>Kontakt</h4>
+        <a href="mailto:info@drvofit.com">info@drvofit.com</a>
+        <a href="#">Instagram</a>
+        <a href="#">TikTok</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 DrvoFit. Sva prava zadržana.</span>
+      <span>Ljig, Srbija</span>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const form = document.querySelector('#contact-form');
+  const status = document.querySelector('#form-status');
+  const btn = document.querySelector('#submit-btn');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const key = form.querySelector('[name="access_key"]').value;
+    if (!key || key === 'TVOJ-ACCESS-KEY-OVDE') {
+      status.textContent = 'Forma još nije povezana — ubaci svoj Web3Forms access key u kod (pogledaj uputstvo koje ti je poslato uz ovaj fajl).';
+      status.style.borderLeftColor = '#c1401c';
+      status.classList.add('visible');
+      return;
+    }
+
+    btn.disabled = true;
+    btn.textContent = 'Šaljem...';
+
+    try {
+      const formData = new FormData(form);
+      const response = await fetch(form.action, {
+        method: 'POST',
+        headers: { 'Accept': 'application/json' },
+        body: formData
+      });
+      const result = await response.json();
+
+      if (response.status === 200) {
+        status.textContent = 'Hvala! Poruka je poslata — javićemo se uskoro.';
+        status.style.borderLeftColor = '#b8834f';
+        status.classList.add('visible');
+        form.reset();
+      } else {
+        console.error('Web3Forms error:', result);
+        status.textContent = 'Nešto nije u redu — pokušaj ponovo ili nam piši direktno na email ispod.';
+        status.style.borderLeftColor = '#c1401c';
+        status.classList.add('visible');
+      }
+    } catch (err) {
+      console.error(err);
+      status.textContent = 'Poruka nije poslata — proveri internet konekciju i pokušaj ponovo.';
+      status.style.borderLeftColor = '#c1401c';
+      status.classList.add('visible');
+    } finally {
+      btn.disabled = false;
+      btn.textContent = 'Pošalji poruku';
+    }
+  });
+});
+</script>
+</body>
+</html>
